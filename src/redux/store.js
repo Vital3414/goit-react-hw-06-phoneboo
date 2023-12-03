@@ -13,11 +13,11 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: 'contacts',
   storage,
-  blacklist: 'filterValue',
+  blacklist: ['filter'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export const stor = configureStore({ reducer: persistedReducer });
+export const store = configureStore({ reducer: persistedReducer });
 
-export const persistor = persistStore(stor);
+export const persistor = persistStore(store);
