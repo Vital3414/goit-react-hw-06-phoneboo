@@ -21,7 +21,11 @@ export default function ContactForm() {
       number,
     };
 
-    if (contacts.some(contact => contact.name === newContact.name)) {
+    if (
+      contacts &&
+      Array.isArray(contacts) &&
+      contacts.some(contact => contact.name === newContact.name)
+    ) {
       alert(`${newContact.name} is already in contacts.`);
       return;
     } else {
